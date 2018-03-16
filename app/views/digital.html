@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<title>digital</title>
+	<style>
+	body{
+		background: #000;
+	}
+	#img {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		max-width: 100%;
+		max-height: 100%;
+		margin: auto;
+		overflow: auto;
+	}
+	</style>
+</head>
+<body>
+	<img id="img">
+	</img>
+	<script>
+		'use strict';
+		const { remote, ipcRenderer } = require('electron');
+
+		async function setImage (src) {
+			return new Promise(async (resolve, reject) => {
+				//let img = new Image()
+				let img = document.getElementById('img')
+				img.onload = () => {
+					document.body.appendChild(img);
+					return resolve(img)
+				}
+				img.onerror = reject
+				img.src = src
+			})
+		}
+
+		async function onDigital (event, arg) {
+			console.dir(event);
+			console.dir(arg);
+			try {
+				await setImage(arg.src)
+			}catch (err) {
+				console.error(err)
+				
+			}
+			return event.returnValue = true;
+		}
+
+		ipcRenderer.on('digital', onDigital);
+	</script>
+</body>
+</html>
+

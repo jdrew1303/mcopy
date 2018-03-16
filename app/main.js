@@ -13,7 +13,8 @@ const uuid = require('uuid')
 const events = require('events')
 const async = require('async')
 const path = require('path')
-const digital = require('./lib/digital')
+const delay = require('./lib/delay')
+const Digital = require('./lib/digital')
 const ee = new events.EventEmitter()
 //const capture = require('./lib/capture')(ee)
 const settings = require('./lib/settings')
@@ -36,12 +37,7 @@ let projector
 let camera
 let server
 let menu
-
-async function delay (ms) {
-	return new Promise(resolve => {
-		return setTimeout(resolve, ms)
-	})
-}
+let digital
 
 //console.log(process.version)
 
@@ -630,6 +626,20 @@ log.info = function (action, service, status, display) {
 		log.display(obj)
 	}
 }
+
+async function TestDigital () {
+	await delay(5 * 1000)
+	digital = new Digital()
+	digital.open()
+	await delay(1 * 1000)
+	digital.setImage('/home/mmcw/Desktop/ArisaWinter400-24-sample.jpg', 1000)
+	await delay(2 * 1000)
+	digital.fullScreen()
+	await delay(5 * 1000)
+	digital.close()
+
+}
+TestDigital().then().catch()
 /*
 var transfer = {}
 
