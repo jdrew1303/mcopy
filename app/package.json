@@ -37,6 +37,7 @@
     "qunit": "^2.5.1"
   },
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.13",
     "async": "^2.6.0",
     "electron": "^1.8.2-beta.4",
     "humanize-duration": "^3.12.1",
