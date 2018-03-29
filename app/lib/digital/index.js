@@ -29,17 +29,36 @@ class Digital {
 			digitalWindow = null
 		})
 	}
-	fullScreen () {
-		digitalWindow.setFullScreen(true)
+	async fullScreen () {
+		return digitalWindow.setFullScreen(true)
 	}
-	setImage (src, delay) {
-		digitalWindow.webContents.send('digital', { src })
+	async setImage (src) {
+		return digitalWindow.webContents.send('digital', { src })
 	}
-	close () {
-		digitalWindow.close()
+	async setMeter () {
+		return digitalWindow.webContents.send('digital', { meter : true })
 	}
-	async frame () {
-		
+	async setGrid () {
+		return digitalWindow.webContents.send('digital', { grid : true })
+	}
+	async setFocus (num = 1) {
+		let imagePath = path.join(__dirname, `../../data/focus${num}.jpg`)
+		return digitalWindow.webContents.send('digital', { src : imagePath })
+	}
+	async getDir (dirPath, num = 0) {
+
+	}
+	async getFrame (videoPath, num = 0) {
+
+	}
+	async close () {
+		if (digitalWindow) {
+			digitalWindow.close()
+		}
+		return true
+	}
+	async move () {
+
 	}
 }
 

@@ -400,6 +400,7 @@ light.end = async function (rgb, id, ms) {
 	return await mainWindow.webContents.send('light', { rgb: rgb, id : id, ms: ms })
 }
 
+proj.digital = null
 proj.state = {
 	dir : true //default dir
 }
@@ -468,6 +469,30 @@ proj.end = async function (cmd, id, ms) {
 	log.info(message, 'PROJECTOR', true, true)
 	return await mainWindow.webContents.send('proj', {cmd: cmd, id : id, ms: ms})
 }
+
+proj.connectDigital = async function (event, arg) {
+	if (arg.connect) {
+		/*cam.intval = new Intval(arg.url)
+		cam.intval.connect((err, ms, state) => {
+			if (err) {
+				mainWindow.webContents.send('intval', { connected : false })
+				log.info(`Cannot connect to ${arg.url}`, 'INTVAL', true, true)
+				cam.intval = null
+				delete cam.intval
+			} else {
+				mainWindow.webContents.send('intval', { connected : true, url : arg.url, state : state })
+				log.info(`Connected to INTVAL3 @ ${arg.url}`, 'INTVAL', true, true)
+				settings.update('camera', { intval : arg.url })
+				settings.save()
+				dev.remember('intval', arg.url, 'camera')
+
+			}
+		})*/
+	} else if (arg.disconnect) {
+		cam.digital = null
+	}
+}
+
 
 cam.intval = null
 cam.state = {
@@ -630,11 +655,14 @@ log.info = function (action, service, status, display) {
 async function TestDigital () {
 	await delay(5 * 1000)
 	digital = new Digital()
-	digital.open()
+	await digital.open()
 	await delay(1 * 1000)
-	digital.setImage('/home/mmcw/Desktop/ArisaWinter400-24-sample.jpg', 1000)
-	await delay(2 * 1000)
-	digital.fullScreen()
+	//await digital.setImage('/home/mmcw/Desktop/ArisaWinter400-24-sample.jpg', 1000)
+	//await digital.setMeter()
+	//await digital.setFocus(1)
+	//await delay(2 * 1000)
+	await digital.fullScreen()
+	await digital.setGrid()
 	await delay(5 * 1000)
 	digital.close()
 

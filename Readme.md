@@ -33,7 +33,7 @@ For Windows, you can [install from source](https://github.com/sixteenmillimeter/
 
 ## Usage <a name="usage"></a>
 
-The software requires your hardware to be in place before 
+The software requires hardware to be of any use. You can download and try the software
 
 ## Software <a name="software"></a>
 

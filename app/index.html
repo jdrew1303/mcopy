@@ -245,6 +245,45 @@
           </div>
         </footer>
       </div>
+      <div id="digital" class="screen">
+         <div class="cam">
+          <div>
+            <div class="file_dialog">
+              <input type="text" id="digital_video" readonly placeholder="Video">
+              <button id="digital_video_select" onclick="return digital.openVideo();">OPEN</button>
+              <input type="radio" name="digital_radio" checked/>
+            </div>
+          </div>
+          <div>
+            <div class="file_dialog">
+              <input type="text" id="digital_image" readonly placeholder="Image">
+              <button id="digital_image_select" onclick="return digital.openImage();">OPEN</button>
+              <input type="radio" name="digital_radio"/>
+            </div>
+          </div>
+          <div>
+            <div class="file_dialog">
+              <input type="text" id="digital_dir" readonly placeholder="Directory"  onclick="return digital.openDirectory();">
+              <button id="digital_dir_select">OPEN</button>
+              <input type="radio" name="digital_radio"/>
+            </div>
+          </div>
+         </div>
+         <div class="proj">
+            <div>
+              <button id="digital_meter" onclick="return digital.setMeter();">METER</button>
+            </div>
+            <div>
+              <button id="digital_frame" onclick="return digital.setGrid();">FRAMING</button>
+            </div>
+            <div>
+              <button id="digital_focus1" onclick="return digital.setFocus(1);">FOCUS ISO CHART</button>
+            </div>
+            <div>
+              <button id="digital_focus2" onclick="return digital.setFocus(2);>FOCUS MOIRÉ</button>
+            </div>
+          </div>
+      </div>
       <div id="settings" class="screen">
         <div>
           <div>

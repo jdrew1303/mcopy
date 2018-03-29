@@ -19,8 +19,10 @@ const seq 		= require('./lib/ui/seq.js');
 const cmd 		= require('./lib/ui/cmd.js');
 const log 		= require('./lib/ui/log.js');
 const devices 	= require('./lib/ui/devices.js');
+const digital 	= require('./lib/ui/digital');
 const mse 		= require('./lib/ui/mscript.js');
 const mscript 	= require('./lib/mscript');
+
 
 
 

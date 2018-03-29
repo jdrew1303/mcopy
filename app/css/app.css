@@ -674,6 +674,37 @@ button:focus {
   background: black;
   color: #fff;
 }
+#digital .cam,
+#digital .proj {
+  padding-top: 40px;
+}
+#digital .cam div,
+#digital .proj div {
+  padding: 5px 0;
+}
+#digital .cam input[type=text],
+#digital .proj input[type=text] {
+  padding: 4px 16px;
+  width: 150px;
+  display: inline-block;
+  margin: 0 !important;
+}
+#digital .cam button,
+#digital .proj button {
+  display: inline-block;
+}
+#digital .cam input[type=radio],
+#digital .proj input[type=radio] {
+  display: inline-block;
+}
+#digital .proj button {
+  width: 260px;
+  margin: 0 auto;
+}
+#digital .file_dialog {
+  width: 260px;
+  margin: 0 auto;
+}
 #log {
   position: fixed;
   width: 100%;
@@ -734,18 +765,22 @@ button:focus {
 #counters .cam,
 #counters_2 .cam,
 #move_to .cam,
+#digital .cam,
 #counters .proj,
 #counters_2 .proj,
-#move_to .proj {
+#move_to .proj,
+#digital .proj {
   width: 50%;
   padding-bottom: 10px;
 }
 #counters .cam label,
 #counters_2 .cam label,
 #move_to .cam label,
+#digital .cam label,
 #counters .proj label,
 #counters_2 .proj label,
-#move_to .proj label {
+#move_to .proj label,
+#digital .proj label {
   text-align: center;
   font-size: 24px;
   display: block;
@@ -753,9 +788,11 @@ button:focus {
 #counters .cam input,
 #counters_2 .cam input,
 #move_to .cam input,
+#digital .cam input,
 #counters .proj input,
 #counters_2 .proj input,
-#move_to .proj input {
+#move_to .proj input,
+#digital .proj input {
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
   padding: 6px 12px;
@@ -768,19 +805,23 @@ button:focus {
 #counters .cam input.changed,
 #counters_2 .cam input.changed,
 #move_to .cam input.changed,
+#digital .cam input.changed,
 #counters .proj input.changed,
 #counters_2 .proj input.changed,
-#move_to .proj input.changed {
+#move_to .proj input.changed,
+#digital .proj input.changed {
   color: #DAE035;
 }
 #counters .cam,
 #counters_2 .cam,
-#move_to .cam {
+#move_to .cam,
+#digital .cam {
   float: left;
 }
 #counters .proj,
 #counters_2 .proj,
-#move_to .proj {
+#move_to .proj,
+#digital .proj {
   float: right;
 }
 #move_to {
